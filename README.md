@@ -1,17 +1,23 @@
 # catatan_polnes
 
-A new Flutter project.
+Proyek praktikum mata kuliah **Pemrograman Perangkat Bergerak (Praktik)**,
+Program Studi **D3 Teknik Informatika**, Politeknik Negeri Samarinda.
 
-## Getting Started
+**Mahasiswa** : <Nama Lengkap>
+**NIM**       : <NIM>
+**Kelas**     : <Kelas>
 
-This project is a starting point for a Flutter application.
+## Menjalankan Proyek
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+flutter pub get
+flutter run
+```
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Verifikasi Mutu
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+dart format .
+flutter analyze
+flutter test
+```
