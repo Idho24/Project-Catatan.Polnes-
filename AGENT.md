@@ -33,3 +33,9 @@ Politeknik Negeri Samarinda.
 
 * Jangan menyentuh direktori `android/` dan `web/` kecuali diminta.
 * Jangan menambah dependensi tanpa persetujuan.
+
+## Aturan Arsitektur
+
+* **Domain:** Mandiri (tidak bergantung pada `data` atau `presentation`).
+* **Data:** Bergantung pada `domain` (implementasi repository).
+* **Presentation:** Bergantung pada `domain` dan `data` (melalui Provider).
