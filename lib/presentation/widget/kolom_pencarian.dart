@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../theme/tokens.dart';
+
 class KolomPencarian extends StatefulWidget {
   const KolomPencarian({super.key, required this.onBerubah});
 
@@ -44,8 +46,10 @@ class _KolomPencarianState extends State<KolomPencarian> {
       decoration: InputDecoration(
         hintText: 'Cari catatan...',
         prefixIcon: const Icon(Icons.search),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppRadius.pill),
+        ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: AppRadius.lg),
       ),
     );
   }

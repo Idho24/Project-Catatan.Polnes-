@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'presentation/router/app_router.dart';
+import 'presentation/state/daftar_catatan_notifier.dart';
+import 'presentation/theme/app_theme.dart';
 
 void main() async {
   const String nama = 'Politeknik Negeri Samarinda';
@@ -133,18 +135,28 @@ int panjangAman(String? teks) {
   return teks.length;
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeModeProvider);
     return MaterialApp.router(
       title: 'Catatan POLNES',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.terang(),
+      darkTheme: AppTheme.gelap(),
+      themeMode: themeMode,
       routerConfig: appRouter,
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            textScaler: MediaQuery.of(context).textScaler
+                .clamp(minScaleFactor: 1.0, maxScaleFactor: 1.8),
+          ),
+          child: child!,
+        );
+      },
     );
   }
 }

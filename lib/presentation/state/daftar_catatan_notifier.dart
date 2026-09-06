@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/repository/catatan_repository_memori.dart';
@@ -31,3 +32,16 @@ final daftarCatatanProvider =
     NotifierProvider<DaftarCatatanNotifier, List<Catatan>>(
       DaftarCatatanNotifier.new,
     );
+
+class ThemeModeNotifier extends Notifier<ThemeMode> {
+  @override
+  ThemeMode build() => ThemeMode.light;
+
+  void ubah(ThemeMode mode) {
+    state = mode;
+  }
+}
+
+final themeModeProvider = NotifierProvider<ThemeModeNotifier, ThemeMode>(
+  ThemeModeNotifier.new,
+);

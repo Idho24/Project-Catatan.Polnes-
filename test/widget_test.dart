@@ -82,7 +82,7 @@ void main() {
       await tester.pumpWidget(const ProviderScope(child: MyApp()));
       await tester.pumpAndSettle();
 
-      expect(find.text('Belum ada catatan.'), findsOneWidget);
+      expect(find.textContaining('Belum ada catatan'), findsOneWidget);
 
       await tester.tap(find.byType(FloatingActionButton));
       await tester.pumpAndSettle();

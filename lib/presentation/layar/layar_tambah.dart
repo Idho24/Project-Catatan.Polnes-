@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../state/daftar_catatan_notifier.dart';
+import '../theme/tokens.dart';
 
 class LayarTambah extends ConsumerStatefulWidget {
   const LayarTambah({super.key});
@@ -41,7 +42,7 @@ class _LayarTambahState extends ConsumerState<LayarTambah> {
     return Scaffold(
       appBar: AppBar(title: const Text('Tambah Catatan')),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(AppSpacing.md),
         child: Column(
           children: [
             TextField(
@@ -51,25 +52,25 @@ class _LayarTambahState extends ConsumerState<LayarTambah> {
                 border: OutlineInputBorder(),
               ),
             ),
-            const SizedBox(height: 16),
-            Expanded(
-              child: TextField(
-                controller: _isiController,
-                decoration: const InputDecoration(
-                  labelText: 'Isi Catatan',
-                  border: OutlineInputBorder(),
-                  alignLabelWithHint: true,
-                ),
-                maxLines: null,
-                expands: true,
-                textAlignVertical: TextAlignVertical.top,
+            const SizedBox(height: AppSpacing.md),
+            TextField(
+              controller: _isiController,
+              decoration: const InputDecoration(
+                labelText: 'Isi Catatan',
+                border: OutlineInputBorder(),
               ),
+              maxLines: 10,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: AppSpacing.lg),
             SizedBox(
               width: double.infinity,
-              child: ElevatedButton(
+              height: 50,
+              child: FilledButton(
                 onPressed: _simpan,
+                style: FilledButton.styleFrom(
+                  backgroundColor: Colors.grey[300],
+                  foregroundColor: Colors.black87,
+                ),
                 child: const Text('Simpan'),
               ),
             ),

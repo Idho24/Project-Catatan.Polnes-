@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../domain/entity/catatan.dart';
+import '../theme/tokens.dart';
 
 class KartuCatatan extends StatelessWidget {
   final Catatan catatan;
@@ -17,12 +18,15 @@ class KartuCatatan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: const EdgeInsets.symmetric(
+        horizontal: AppSpacing.md,
+        vertical: AppSpacing.sm,
+      ),
       child: InkWell(
         onTap: onKetuk,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(AppRadius.md),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(AppSpacing.md),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -37,13 +41,13 @@ class KartuCatatan extends StatelessWidget {
                         fontSize: 16,
                       ),
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: AppSpacing.xs),
                     Text(
                       catatan.isi,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: AppSpacing.sm),
                     Text(
                       formatTanggal(catatan.dibuatPada),
                       style: const TextStyle(fontSize: 12, color: Colors.grey),
@@ -54,6 +58,7 @@ class KartuCatatan extends StatelessWidget {
               IconButton(
                 onPressed: onHapus,
                 icon: const Icon(Icons.delete, color: Colors.red),
+                tooltip: 'Hapus catatan',
                 padding: EdgeInsets.zero,
                 constraints: const BoxConstraints(),
               ),
